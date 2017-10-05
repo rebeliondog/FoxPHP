@@ -30,6 +30,11 @@
 				echo "<h1 style='color=red'>Setup failed, did you configure a databse in foxphp_inc.php?</h1>";
 				exit();
 			}
+			else
+			{
+				echo "<h1 style='color=red'>Setup done. You can now use FoxPHP!</h1>";
+				exit();
+			}
 		}
 	?>
 	
