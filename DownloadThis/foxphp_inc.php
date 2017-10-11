@@ -1,4 +1,5 @@
 <?php
+session_start();
 /* Stuff you may touch */
 
 //MySQL database login
