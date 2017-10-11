@@ -10,11 +10,11 @@ $foxdb_database = '';
 
 /* Never touch this! */
 
-//Used for database connections
-$foxsqli = mysqli_connect($foxdb_hostname, $foxdb_username, $foxdb_password, $foxdb_database);
-
 //Used for version checks;
 $foxver = "0.0.1";
+
+//Used for database connections
+$GLOBALS['foxsqli'] = mysqli_connect($foxdb_hostname, $foxdb_username, $foxdb_password, $foxdb_database);
 
 //Loading all functions (hardcoded for version compaxctibility)
 require('foxphp_functions/usersystem.php');
