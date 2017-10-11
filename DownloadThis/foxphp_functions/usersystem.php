@@ -1,20 +1,16 @@
 <?php
-
 function fox_login()
 {
 	session_start();
 	
 	$user = $_POST['username'];
 	$pass = $_POST['password'];
-
 	$opdracht1 = "SELECT * FROM foxphp_users WHERE username = '$user'";
-
-	$resultaat1 = mysqli_query($foxsqli, $opdracht1);
-
+	$resultaat1 = mysqli_query($GLOBALS['foxsqli'], $opdracht1);
 	if(mysqli_num_rows($resultaat1) > 0)
 	{
 		$opdracht2 = "SELECT * FROM foxphp_users WHERE username='$user'";
-		$resultaat2 = mysqli_query($foxsqli, $opdracht2);
+		$resultaat2 = mysqli_query($GLOBALS['foxsqli'], $opdracht2);
 		if(mysqli_num_rows($resultaat2) > 0)
 		{
 			$rij = mysqli_fetch_array($resultaat2);
@@ -23,7 +19,8 @@ function fox_login()
 			{
 				$_SESSION["username"] = $rij['username'];
 				$_SESSION['level'] = $rij['level'];
-				return(true);}
+				//Log In
+				return(true);
 			}
 			else
 			{
@@ -36,26 +33,21 @@ function fox_login()
 		return(false);
 	}
 }
-
 function fox_register()
 {
 	$user = $_POST['username'];
 	$pass = $_POST['pass'];
 	$pass2 = $_POST['pass2'];
 	$level = 0;
-
 	$stringy = $user + $pass + $pass2;
-
 	if ($pass == "" || $pass2 == "" || $user == "")
 	{
 		return("The username or password can't be empty");
 	}
-
 	if ($pass == " " || $pass2 == " " || $user == " ")
 	{
 		return("The username or password can not contain space");
 	}
-
 	if (strpos($stringy, "'") !== false) {
 		return("The username or password can not contain ', ;, -, or $");
 	}
@@ -71,13 +63,11 @@ function fox_register()
 	if (strpos($stringy, '"') !== false) {
 		return("The username or password can not contain ', ;, -, or $");
 	}
-
 	if ($pass == $pass2)
 	{
 		$passv = password_hash("$pass", PASSWORD_DEFAULT);
-
 		$query = "SELECT * FROM foxphp_users WHERE username = '$user'";
-		$result1 = mysqli_query($foxsqli, $query);
+		$result1 = mysqli_query($GLOBALS['foxsqli'], $query);
 		if(mysqli_num_rows($result1) > 0)
 		{
 			return("Username has already been taken");
@@ -85,7 +75,7 @@ function fox_register()
 		else
 		{
 			$query1 = "INSERT INTO foxphp_users VALUES (NULL, '$user', '$passv', '$level');";
-			if(mysqli_query($foxsqli, $query1))
+			if(mysqli_query($GLOBALS['foxsqli'], $query1))
 			{
 				echo mysqli_num_rows($query); 
 				return(true);
@@ -101,22 +91,18 @@ function fox_register()
 		return("The passwords don't match");
 	}
 }
-
 function fox_logout()
 {
 	$_SESSION['fox_user'] = null;
 	$_SESSION['fox_user_perm'] = null;
 	return(true);
 }
-
 function fox_username()
 {
 	return($_SESSION['fox_user']);
 }
-
 function fox_userperm()
 {
 	return($_SESSION['fox_user_perm']);
 }
-
 ?>
