@@ -17,7 +17,7 @@ $foxver = "0.0.1";
 $foxsqli = mysqli_connect($foxdb_hostname, $foxdb_username, $foxdb_password, $foxdb_database);
 
 //Loading all functions (hardcoded for version compaxctibility)
-include('foxphp_functions/usersystem.php');
+require('foxphp_functions/usersystem.php');
 
 
 //Loading all plugins (softcoded to make it easy)
