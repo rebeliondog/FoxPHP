@@ -23,12 +23,7 @@ function fox_login()
 			{
 				$_SESSION["username"] = $rij['username'];
 				$_SESSION['level'] = $rij['level'];
-				//Log In
-				return(true);
-				if($redirect_on_sucseed != "" || $redirect_on_sucseed != null)
-				{
-					return(true);
-				}
+				return(true);}
 			}
 			else
 			{
