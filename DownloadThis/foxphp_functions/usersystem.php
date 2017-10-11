@@ -1,8 +1,6 @@
 <?php
 function fox_login()
-{
-	session_start();
-	
+{	
 	$user = $_POST['username'];
 	$pass = $_POST['password'];
 	$opdracht1 = "SELECT * FROM foxphp_users WHERE username = '$user'";
