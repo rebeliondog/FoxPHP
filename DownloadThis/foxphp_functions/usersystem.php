@@ -108,4 +108,4 @@ function fox_logout()
 	return(true);
 }
 
-<!-- (C) Dimitri The Fox -->
+// (C) Dimitri The Fox
