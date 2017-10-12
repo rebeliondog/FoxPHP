@@ -74,6 +74,14 @@ function fox_register()
 		}
 		else
 		{
+			if($_POST['level'] != "")
+			{
+				$level = $_POST['level'];	
+			}
+			else
+			{
+				$level = 0;	
+			}
 			$query1 = "INSERT INTO foxphp_users VALUES (NULL, '$user', '$passv', '$level');";
 			if(mysqli_query($GLOBALS['foxsqli'], $query1))
 			{
