@@ -31,6 +31,8 @@ function fox_login()
 		return(false);
 	}
 }
+
+
 function fox_register()
 {
 	$user = $_POST['username'];
@@ -89,19 +91,13 @@ function fox_register()
 		return("The passwords don't match");
 	}
 }
+
+
 function fox_logout()
 {
 	$_SESSION['fox_user'] = null;
 	$_SESSION['fox_user_perm'] = null;
 	return(true);
 }
-function fox_username()
-{
-	return($_SESSION['fox_user']);
-}
-function fox_userperm()
-{
-	return($_SESSION['fox_user_perm']);
-}
-?>
+
 <!-- (C) Dimitri The Fox -->
