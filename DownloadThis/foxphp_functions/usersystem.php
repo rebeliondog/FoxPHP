@@ -104,3 +104,4 @@ function fox_userperm()
 	return($_SESSION['fox_user_perm']);
 }
 ?>
+<!-- (C) Dimitri The Fox -->
