@@ -103,8 +103,7 @@ function fox_register()
 
 function fox_logout()
 {
-	$_SESSION['fox_user'] = null;
-	$_SESSION['fox_user_perm'] = null;
+	session_destory();
 	return(true);
 }
 
