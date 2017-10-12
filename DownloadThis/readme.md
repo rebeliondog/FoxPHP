@@ -1,4 +1,4 @@
-#How to setup
+# How to setup
 
 1. Place the files in this folder in the root folder of where you want to use my lib.
 2. Setup a database in foxphp_inc.php
