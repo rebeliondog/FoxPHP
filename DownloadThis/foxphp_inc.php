@@ -40,3 +40,4 @@ if(strpos($_SERVER['PHP_SELF'], 'foxphp_inc.php') !== false)
 	exit();
 }
 ?>
+<!-- (C) Dimitri The Fox -->
