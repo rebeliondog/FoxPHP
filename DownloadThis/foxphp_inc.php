@@ -12,7 +12,7 @@ $foxdb_database = '';
 /* Never touch this! */
 
 //Used for version checks;
-$foxver = "0.0.1";
+$foxver = "0.0.2";
 
 //Used for database connections
 $GLOBALS['foxsqli'] = mysqli_connect($foxdb_hostname, $foxdb_username, $foxdb_password, $foxdb_database);
